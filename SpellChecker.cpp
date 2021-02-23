@@ -33,4 +33,10 @@ namespace sdds {
 			}
 		}
 	}
+
+	void SpellChecker::showStatistics(ostream& out) {
+		for (int i = 0; i < MAX; i++) {
+			out << m_badWords[i] << ": " << CNT[i] << " replacements\n";
+		}
+	}
 }

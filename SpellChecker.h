@@ -11,6 +11,7 @@ namespace sdds {
 	public:
 		SpellChecker(const char* filename);
 		void operator()(string& text);
+		void showStatistics(ostream& out);
 	};
 }
 #endif
