@@ -1,8 +1,8 @@
 #include <iomanip>
 #include <sstream>
 #include "Book.h"
-
 namespace sdds {
+
 	const string& Book::title() const {
 		return b_title;
 	}

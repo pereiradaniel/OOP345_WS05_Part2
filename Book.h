@@ -1,9 +1,7 @@
 #ifndef SDDS_BOOK_H
 #define SDDS_BOOK_H
-
 #include <string>
 using namespace std;
-
 namespace sdds {
 	class Book {
 		string b_author{};
@@ -20,6 +18,8 @@ namespace sdds {
 		double& price();
 		Book(const string& strBook);
 		friend ostream& operator<<(ostream& os, Book& src);
+		template <typename T>
+			void fixSpelling(T& spellChecker) { spellChecker(b_des); }
 	};
 }
 #endif
