@@ -7,7 +7,7 @@ namespace sdds {
 	class Collection {
 		string c_name;
 		T* c_item{};
-		size_t c_cnt;
+		size_t c_cnt{};
 		void (*c_observer)(const Collection<T>&, const T&) { nullptr };
 	public:
 		Collection(const string& name) {
