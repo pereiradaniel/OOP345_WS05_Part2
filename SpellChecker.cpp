@@ -1,5 +1,7 @@
 #include <fstream>
 #include <sstream>
+#include <iostream>
+#include <iomanip>
 #include "SpellChecker.h"
 
 namespace sdds {
@@ -36,7 +38,7 @@ namespace sdds {
 
 	void SpellChecker::showStatistics(ostream& out) {
 		for (int i = 0; i < MAX; i++) {
-			out << m_badWords[i] << ": " << CNT[i] << " replacements\n";
+			out << setw(15) << right << m_badWords[i] << ": " << CNT[i] << " replacements\n";
 		}
 	}
 }
