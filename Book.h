@@ -19,7 +19,9 @@ namespace sdds {
 		Book(const string& strBook);
 		friend ostream& operator<<(ostream& os, Book& src);
 		template <typename T>
-			void fixSpelling(T& spellChecker) { spellChecker(b_des); }
+			void fixSpelling(T& spellChecker) {
+				spellChecker(b_des);
+			}
 	};
 }
 #endif
