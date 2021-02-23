@@ -2,7 +2,7 @@
 #define SDDS_SPELLCHECKER_H
 #include <string>
 using namespace std;
-const int MAX = 6;
+const int MAX = 5;
 namespace sdds {
 	class SpellChecker {
 		string m_badWords[MAX];
