@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
+    <ClInclude Include="Collection.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="SpellChecker.h" />
   </ItemGroup>
