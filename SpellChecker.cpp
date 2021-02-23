@@ -29,6 +29,7 @@ namespace sdds {
 		for (int i = 0; i < MAX; i++) {
 			while (text.find(m_badWords[i]) != string::npos) {
 				text.replace(text.find(m_badWords[i]), m_badWords[i].size(), m_goodWords[i]);
+				++CNT[i];
 			}
 		}
 	}
