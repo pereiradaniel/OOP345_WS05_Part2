@@ -240,7 +240,7 @@ int main(int argc, char** argv)
 	}
 	catch (const std::out_of_range& e)
 	{
-		std::cout << "EXCEPTION: " << e.what() << std::endl;
+		std::cout << "** EXCEPTION: " << e.what() << std::endl;
 	}
 	
 
