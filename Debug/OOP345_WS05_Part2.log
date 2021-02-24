@@ -1,8 +1,2 @@
-﻿  Book.cpp
-  Movie.cpp
-  SpellChecker.cpp
-  w5_p2.cpp
-C:\Users\ETNA\source\repos\Sem4\OOP345\WS\OOP345_WS05_Part2\w5_p2.cpp(194,27): warning C4390: ';': empty controlled statement found; is this the intent?
-  Generating Code...
-  LINK : C:\Users\ETNA\source\repos\Sem4\OOP345\WS\OOP345_WS05_Part2\Debug\OOP345_WS05_Part2.exe not found or not built by the last incremental link; performing full link
+﻿  w5_p2.cpp
   OOP345_WS05_Part2.vcxproj -> C:\Users\ETNA\source\repos\Sem4\OOP345\WS\OOP345_WS05_Part2\Debug\OOP345_WS05_Part2.exe

@@ -191,7 +191,7 @@ int main(int argc, char** argv)
 			std::getline(file, strBook);
 
 			if (file) {
-				if (strBook[0] != '#');
+				if (strBook[0] != '#')
 					++cnt;
 			}
 		} while (file);
