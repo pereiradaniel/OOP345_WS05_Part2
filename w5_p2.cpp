@@ -95,7 +95,7 @@ int main(int argc, char** argv)
 					++cnt;
 				}
 			}
-		} while (file && cnt < 5);
+		} while (file && cnt < 4); // d
 
 
 		/*
@@ -267,12 +267,12 @@ int main(int argc, char** argv)
 			//         where ERROR_MESSAGE is extracted from the exception object.
 		try {
 			SpellChecker sp(argv[i]);
-			for (auto j = 0u; j < library.size(); ++j)
-				library[j].fixSpelling(sp);
+			for (auto j = 0u; j < theCollection.size(); ++j) // d
+				theCollection[j].fixSpelling(sp); // d
 			sp.showStatistics(std::cout);
 
-			for (auto j = 0u; j < theCollection.size(); ++j)
-				theCollection[j].fixSpelling(sp);
+			for (auto j = 0u; j < library.size(); ++j) // d
+				library[j].fixSpelling(sp); // d
 			sp.showStatistics(std::cout);
 		}
 		catch (const char* msg) {
