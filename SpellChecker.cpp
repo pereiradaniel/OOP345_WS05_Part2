@@ -37,8 +37,9 @@ namespace sdds {
 	}
 
 	void SpellChecker::showStatistics(ostream& out) {
+		cout << "Spellchecker Statistics" << endl;
 		for (int i = 0; i < MAX; i++) {
-			out << setw(15) << right << m_badWords[i] << ": " << CNT[i] << " replacements\n";
+			out << setw(15) << right << m_badWords[i] << ": " << CNT[i] << " replacements" << endl;
 		}
 	}
 }

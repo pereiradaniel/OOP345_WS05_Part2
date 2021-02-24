@@ -28,9 +28,9 @@ namespace sdds {
 	}
 
 	ostream& operator<<(ostream& os, const Movie& src) {
-		os << setw(40) << src.m_title << " | ";
+		os << setw(40) << right << src.m_title << " | ";
 		os << setw(4) << src.m_year << " | ";
-		os << src.m_des << endl;
+		os << left << src.m_des << endl;
 		return os;
 	}
 }

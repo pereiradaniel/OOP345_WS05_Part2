@@ -67,7 +67,7 @@ namespace sdds {
 		}
 		T& operator[](size_t idx) const {
 			if (idx >= c_cnt || idx < 0) {
-				throw out_of_range("Bad index [" + to_string(idx) + "]. " + "Collection has [" + to_string(c_cnt) + "] items.");
+				throw out_of_range("** Bad index [" + to_string(idx) + "]. " + "Collection has [" + to_string(c_cnt) + "] items.");
 			}
 			else {
 				return c_item[idx];

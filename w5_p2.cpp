@@ -267,16 +267,16 @@ int main(int argc, char** argv)
 			//         where ERROR_MESSAGE is extracted from the exception object.
 		try {
 			SpellChecker sp(argv[i]);
-			for (auto j = 0u; j < theCollection.size(); ++j) // d
-				theCollection[j].fixSpelling(sp); // d
+			for (auto j = 0u; j < library.size(); ++j)
+				library[j].fixSpelling(sp);
 			sp.showStatistics(std::cout);
 
-			for (auto j = 0u; j < library.size(); ++j) // d
-				library[j].fixSpelling(sp); // d
+			for (auto j = 0u; j < theCollection.size(); ++j)
+				theCollection[j].fixSpelling(sp);
 			sp.showStatistics(std::cout);
 		}
 		catch (const char* msg) {
-			std::cout << "EXCEPTION: " << msg << std::endl;
+			std::cout << "** EXCEPTION: " << msg << std::endl;
 		}
 	}
 	if (argc < 3) {
