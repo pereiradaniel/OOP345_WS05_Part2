@@ -47,12 +47,12 @@ namespace sdds {
 	}
 
 	ostream& operator<<(ostream& os, Book& src) {
-		os << setw(20) << src.b_author << " | ";
+		os << right << setw(20) << setfill(' ') << src.b_author << " | ";
 		os << setw(22) << src.title() << " | ";
 		os << setw(5) << src.country() << " | ";
 		os << setw(4) << src.year() << " | ";
-		os << setw(6) << fixed << setprecision(2) << src.price() << " | ";
-		os << src.b_des << endl;
+		os << setw(6) << fixed << setprecision(2) << setprecision(2) << src.price() << " | ";
+		os << left << src.b_des << endl;
 		return os;
 	}
 }
