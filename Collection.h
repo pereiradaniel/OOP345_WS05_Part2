@@ -47,6 +47,12 @@ namespace sdds {
 				}
 				else {
 					T* temp = new T[c_cnt];
+					for (size_t i = 0; i < c_cnt; ++i) {
+						temp[i] = c_item[i];
+					}
+					delete[] c_item;
+					c_cnt++;
+					c_item = new T[c_cnt];
 					for (size_t j = 0; j < c_cnt - 1; ++j) {
 						c_item[j] = temp[j];
 					}
@@ -83,7 +89,7 @@ namespace sdds {
 		}
 
 		friend ostream& operator<<(ostream& os, Collection& src) {
-			for (size_t i = 0; i < src.size(); i++) {
+			for (size_t i = 0; i < src.size(); ++i) { // d
 				os << src.c_item[i];
 			}
 			return os;
