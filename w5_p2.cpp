@@ -73,7 +73,6 @@ int main(int argc, char** argv)
 
 		do {
 			std::getline(file, strBook);
-
 			if (file) {
 				if (strBook[0] != '#')
 				++cnt;
@@ -81,9 +80,9 @@ int main(int argc, char** argv)
 		} while (!file);
 
 		cnt = 0;
-
 		file.clear();
 		file.seekg(std::ios::beg);
+
 		do {
 			std::getline(file, strBook);
 
@@ -95,8 +94,7 @@ int main(int argc, char** argv)
 					++cnt;
 				}
 			}
-		} while (file && cnt < 4); // d
-
+		} while (file && cnt < 4);
 
 		/*
 		 ♪ Hey, I just met you,      ♪
@@ -108,7 +106,6 @@ int main(int argc, char** argv)
 		library.setObserver(bookAddedObserver);
 
 		// TODO: add the rest of the books from the file.
-
 		do {
 			std::getline(file, strBook);
 
@@ -120,7 +117,6 @@ int main(int argc, char** argv)
 				}
 			}
 		} while (file);
-
 	}
 	else
 	{
@@ -133,19 +129,17 @@ int main(int argc, char** argv)
 
 	// TODO: (from part #1) create a lambda expression that fixes the price of a book accoding to the rules
 	//       - the expression should receive a single parameter of type "Book&"
-	//       - if the book was published in US, multiply the price with "usdToCadRate"
-	//            and save the new price in the book object
-	//       - if the book was published in UK between 1990 and 1999 (inclussive),
-	//            multiply the price with "gbpToCadRate" and save the new price in the book object
-
-	auto currentConvert = [&](Book& b) {
-		double& newPrice = b.price();
+	auto cashConv = [&](Book& b) {
+		double& nPrice = b.price();
+		//       - if the book was published in US, multiply the price with "usdToCadRate"
+		//            and save the new price in the book object
 		if (b.country() == "US") {
-			newPrice *= usdToCadRate;
+			nPrice *= usdToCadRate;
 		}
-
+		//       - if the book was published in UK between 1990 and 1999 (inclussive),
+		//            multiply the price with "gbpToCadRate" and save the new price in the book object
 		if ((b.country() == "UK") && ((b.year() >= 1990) && (b.year() <= 1999))) {
-			newPrice *= gbpToCadRate;
+			nPrice *= gbpToCadRate;
 		}
 	};
 
@@ -158,7 +152,7 @@ int main(int argc, char** argv)
 	// TODO (from part #1): iterate over the library and update the price of each book
 	//         using the lambda defined above.
 	for (size_t i = 0u; i < library.size(); i++) {
-		currentConvert(library[i]);
+		cashConv(library[i]);
 	}
 
 	std::cout << "-----------------------------------------\n";
@@ -176,7 +170,6 @@ int main(int argc, char** argv)
 		//       - read one line at a time, and pass it to the Movie constructor
 		//       - store each movie read into the array "movies"
 		//       - lines that start with "#" are considered comments and should be ignored
-	
 		std::ifstream file(argv[2]);
 		size_t cnt = 0;
 
@@ -189,7 +182,6 @@ int main(int argc, char** argv)
 
 		do {
 			std::getline(file, strBook);
-
 			if (file) {
 				if (strBook[0] != '#')
 					++cnt;
@@ -202,7 +194,6 @@ int main(int argc, char** argv)
 
 		do {
 			std::getline(file, strBook);
-
 			if (file) {
 				if (strBook[0] != '#') {
 					Movie temp(strBook);
@@ -212,7 +203,6 @@ int main(int argc, char** argv)
 			}
 		} while (file);
 		file.close();
-
 	}
 
 	std::cout << "-----------------------------------------\n";
@@ -243,11 +233,13 @@ int main(int argc, char** argv)
 		//       If an exception occurs print a message in the following format
 		//** EXCEPTION: ERROR_MESSAGE<endl>
 		//         where ERROR_MESSAGE is extracted from the exception object.
-	try {
+	try
+	{
 		for (auto i = 0u; i < 10; ++i)
 			std::cout << theCollection[i];
 	}
-	catch (const std::out_of_range& e) {
+	catch (const std::out_of_range& e)
+	{
 		std::cout << "EXCEPTION: " << e.what() << std::endl;
 	}
 	
@@ -260,11 +252,11 @@ int main(int argc, char** argv)
 	std::cout << "-----------------------------------------\n";
 	for (auto i = 3; i < argc; ++i)
 	{
-			// TODO: The following statement can generate generate an exception
-			//         write code to handle the exception
-			//       If an exception occurs print a message in the following format
-			//** EXCEPTION: ERROR_MESSAGE<endl>
-			//         where ERROR_MESSAGE is extracted from the exception object.
+		// TODO: The following statement can generate generate an exception
+		//         write code to handle the exception
+		//       If an exception occurs print a message in the following format
+		//** EXCEPTION: ERROR_MESSAGE<endl>
+		//         where ERROR_MESSAGE is extracted from the exception object.
 		try {
 			SpellChecker sp(argv[i]);
 			for (auto j = 0u; j < library.size(); ++j)
@@ -275,7 +267,8 @@ int main(int argc, char** argv)
 				theCollection[j].fixSpelling(sp);
 			sp.showStatistics(std::cout);
 		}
-		catch (const char* msg) {
+		catch (const char* msg)
+		{
 			std::cout << "** EXCEPTION: " << msg << std::endl;
 		}
 	}

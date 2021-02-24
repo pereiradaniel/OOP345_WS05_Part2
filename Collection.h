@@ -16,21 +16,28 @@ namespace sdds {
 			c_cnt = 0;
 			c_observer = nullptr;
 		}
+
 		~Collection() {
 			delete[] c_item;
 			c_item = nullptr;
 		}
+
 		Collection(Collection&) = delete;
+
 		Collection& operator=(Collection&) = delete;
+
 		const string& name() const {
 			return c_name;
 		}
+
 		size_t size() const {
 			return c_cnt;
 		}
+
 		void setObserver(void (*observer)(const Collection<T>&, const T&)) {
 			c_observer = observer;
 		}
+
 		Collection<T>& operator+=(const T& item) {
 			bool exists = false;
 
@@ -65,6 +72,7 @@ namespace sdds {
 			}
 			return *this;
 		}
+
 		T& operator[](size_t idx) const {
 			if (idx >= c_cnt || idx < 0) {
 				throw out_of_range("** Bad index [" + to_string(idx) + "]. " + "Collection has [" + to_string(c_cnt) + "] items.");
@@ -73,6 +81,7 @@ namespace sdds {
 				return c_item[idx];
 			}
 		}
+
 		T* operator[](string title) const {
 			int idx = -1;
 			for (size_t i = 0; i < c_cnt; i++) {
@@ -89,7 +98,7 @@ namespace sdds {
 		}
 
 		friend ostream& operator<<(ostream& os, Collection& src) {
-			for (size_t i = 0; i < src.size(); ++i) { // d
+			for (size_t i = 0; i < src.size(); ++i) {
 				os << src.c_item[i];
 			}
 			return os;
