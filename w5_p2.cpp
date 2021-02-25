@@ -71,14 +71,6 @@ int main(int argc, char** argv)
 
 		std::string strBook;
 
-		do {
-			std::getline(file, strBook);
-			if (file) {
-				if (strBook[0] != '#')
-				++cnt;
-			}
-		} while (!file);
-
 		cnt = 0;
 		file.clear();
 		file.seekg(std::ios::beg);
@@ -179,14 +171,6 @@ int main(int argc, char** argv)
 		}
 
 		std::string strBook;
-
-		do {
-			std::getline(file, strBook);
-			if (file) {
-				if (strBook[0] != '#')
-					++cnt;
-			}
-		} while (file);
 
 		cnt = 0;
 		file.clear();
